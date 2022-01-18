@@ -10,13 +10,10 @@ import Footer from './Footer'
 import '../index.css';
 import NewAddress from './NewAddress'
 import { useNavigate,Outlet } from 'react-router-dom'
-//import IconButton from '@mui/material'
-//import CloseIcon from '@material-ui/core';
 import Order from './Order'
 export default function Profile() {
     const navigate = useNavigate()
     const [record, setRecord] = useState("")
-    //const [user,setUser] = useState({})
     const [showProfile, setShowProfile] = useState(true)
     const [showOrders, setShowOrders] = useState(false)
     const [showAddress, setShowAddress] = useState(false)

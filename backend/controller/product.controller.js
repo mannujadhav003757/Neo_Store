@@ -1,9 +1,7 @@
 const Product = require('../model/product.schema')
 const Order = require('../model/order.schema')
 const mongoose = require('mongoose')
-// const Category = require('../model/category.schema')
-// const Color = require('../model/color.schema')
-// const SubImage = require('../model/subImages.schema')
+
 
 exports.createProduct = async (req, res) => {
     try {
@@ -102,57 +100,7 @@ exports.getProducts = async (req, res) => {
 }
 
 exports.filetredProduct = async (req, res) => {
-    // try{
-    //     const { category_id, color_id} = req.body
-    //     let product = await Product.find({ category_id, color_id })
-    //     // .populate(["category_id","color_id"])
-    //     .then(product=>{
-    //         console.log(product);
-    //         return res.status(200).send({
-    //             'message':'OK',
-    //             'stausCode': 200,
-    //             'data':product
-    //         })
-    //     })
-    // }
-    // catch(e)
-    // {
-    //     console.log(product);
-    //     return res.status(200).send({
-    //         'message':'OK',
-    //         'stausCode': 200,
-    //         'data':product
-    //     })
 
-    // }
-
-
-    // try {
-    //     const { category_id, color_id } = req.body
-
-    //     let product = await Product.find({ category_id,color_id })
-
-    //     if (!product) {
-    //         return res.status(401).send({
-    //             'message': 'Invalid selection',
-    //             'statusCode': 401
-    //         })
-    //     }
-
-    //     await product.save()
-    //     //console.log(product)
-    //     return res.status(200).send({
-    //         'message': 'ok',
-    //         'statusCode': 200,
-    //         'data': product
-    //     })
-
-    // } catch (e) {
-    //     return res.status(400).send({
-    //         'message': 'something went wrong, Please try again.',
-    //         'statusCode': 400
-    //     })
-    // }
     try {
         const category_id = req.query.category_id
         const color_id = req.query.color_id
@@ -223,119 +171,9 @@ exports.filetredProduct = async (req, res) => {
             'statusCode': 400
         })
     }
-    //       const category_id = req.body
-    //       const color_id = req.body
-
-    //    const product = await Product.find({
-    //         'category_id': { $in: [
-    //             mongoose.Types.ObjectId(category_id)
-    //         ]},
-    //         'category_id': { $in: [
-    //             mongoose.Types.ObjectId(color_id)
-    //         ]}
-
-    //     }, function(err, docs){
-    //          console.log(docs);
-    //     });
-
-    //     pro
-
-
-
-
-
-    // try{
-    //     const product = req.body
-    //     product.find()
-    // .populate(["category_id","color_id"])
-    // .then(product=>{
-    //     console.log(product);
-    //     return res.status(200).send({
-    //         'message':'OK',
-    //         'stausCode': 200,
-    //         'data':product
-    //     })
-    // })
-
-    // }
-    // catch(e)
-    // {
-    //     return res.status(200).send({
-    //         'message':'OK',
-    //         'stausCode': 200
-    //     })
-    // } 
-
-
-    // try {
-    //     const product = await Product.aggregate([
-    //         {
-    //             $match: {
-    //                 category_id : req.body,
-    //                 color_id : req.body
-    //             },
-    //         },
-    //         {
-    //             $sort: {
-    //                 color_id:
-    //             },
-    //         },
-    //         {
-    //             $lookup: {
-    //                 from: "subimages",
-    //                 localField: "subImages_id",
-    //                 foreignField: "_id",
-    //                 as: "subImages_id",
-    //             },
-    //         },
-    //         {
-    //             $unwind: {
-    //                 path: "$color_id",
-    //                 preserveNullAndEmptyArrays: true,
-    //             }
-    //         },
-    //         {
-    //             $unwind: {
-    //                 path: "$category_id",
-    //                 preserveNullAndEmptyArrays: true,
-    //             }
-    //         },
-    //         {
-    //             $unwind: {
-    //                 path: "$subImages_id",
-    //                 preserveNullAndEmptyArrays: true,
-    //             }
-    //         }
-    //     ])
-
-    //     if(!product) {
-    //         return res.status(400).send({
-    //             'message': 'record not found',
-    //             'statusCode': 400
-    //         })
-    //     } 
-
-    //     return res.status(200).send({
-    //         'message': 'ok',
-    //         'statusCode': 200,
-    //         'data': product
-    //     })
-    // } catch (e) {
-    //     return res.status(400).send({
-    //         'message': 'something went wrong, Please try again.',
-    //         'statusCode': 400
-    //     })
-    // }
-
-
-    // Product.find()
-    // .populate(["category_id","color_id"])
-    // .then(product=>{
-    //     console.log(product);
-    //     res.send("Data Fetch")
-    // })
-
 }
+
+
 
 exports.addProductToCartCheckout = async (req, res) => {
     try {

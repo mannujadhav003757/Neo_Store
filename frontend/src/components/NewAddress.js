@@ -55,22 +55,15 @@ export default function NewAddress(prop) {
         
         if(Address.address && Address.city && Address.state && Address.pincode && Address.country)
         {
-                //let customer_id = record._id
-                //console.log(customer_id)
+                
                 const token = localStorage.getItem('token')
-
-                // const options = {
-                //     headers: {
-                //         'token': token
-                //     }
-                // }
 
                 const options = {    
                     headers: {
                         'token': token,
                     }
                 }
-                // const { customer_id, address, city, state, pincode, country } = Address
+                
                 console.log("Here is payload",Address)
                 axios.post('http://localhost:8081/addAddress',Address, options).then(res => {
                     console.log(res.data.data)
@@ -111,12 +104,12 @@ export default function NewAddress(prop) {
                                 value={Address.address}
                                 onChange={handleChange}
 
-                                // className="col-sm-2"
+                                
                                 style={{ height: "70px" }}
                             />
                         </div>
                     </div>
-                    {/* <label htmlFor="floatingInputCustom" className='ml-4'> Address</label> */}
+                
                 </Form.Floating>
             </div>
             <div className="row">

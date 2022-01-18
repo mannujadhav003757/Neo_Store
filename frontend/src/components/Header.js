@@ -37,13 +37,11 @@ export default function Header(prop) {
         alert("function called")
         localStorage.removeItem("token");
         localStorage.removeItem('userName')
-        // localStorage.removeItem("cartDetails");
+        localStorage.removeItem("cartDetails");
         setShow(false)
     }
 
-    // const navCart = () =>{
-    //     navigate('/cart')
-    // }
+
 
    
     
@@ -71,10 +69,7 @@ export default function Header(prop) {
                             title={demoString+userName}
                             className="ml-4 far fa-user"
                         >
-                             {/* <Dropdown.Item href="#">Orders</Dropdown.Item>
-                            <Dropdown.Item href="#">Address</Dropdown.Item>
-                            <Dropdown.Item href="#">LogIn</Dropdown.Item>
-                            <Dropdown.Item href="#">Register</Dropdown.Item> */}
+                             
                     <Dropdown.Item href="/profile" >Profile</Dropdown.Item> 
                     {/* <Dropdown.Item href="">Orders</Dropdown.Item>  */}
                   <Dropdown.Item href="/login" >Login</Dropdown.Item> 
@@ -83,9 +78,7 @@ export default function Header(prop) {
 
                             
                         </DropdownButton>
-                        {/* onCLick={navProfile}
-                        onClick={LogIn}
-                        onClick={registerNav} */}
+                        
                     </Nav>
                 </Container>
             </Navbar>

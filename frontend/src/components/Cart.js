@@ -10,8 +10,6 @@ import axios from 'axios'
 import { useNavigate,Outlet } from 'react-router-dom'
 export default function Cart() {
     const navigate = useNavigate()
-    // const [record, setRecord]=useState([])
-    // const record = JSON.parse(localStorage.getItem('cartDetails'))
     const [data, setData] = useState([])
     const [subTotal, setSubTotal] = useState(0)
     const [gst, setGst] = useState(0)
@@ -42,13 +40,6 @@ export default function Cart() {
 
     }, [])
 
-    // const [quantity,setQuantity] = useState(1)
-    //const [total,setTotal]=(0)
-    // console.log(quantity)
-
-    // const handleChange = (e) =>{
-    //         setQuantity(e.target.value)
-    // }
 
     console.log("Address is here", address)
     const onLessQuantity = (item) => {
@@ -97,10 +88,8 @@ export default function Cart() {
         }
     }
 
-    //let sum = data.reduce(function(a, datatotal_productCost) { return a + Number(data.total_productCost); }, 0)
-    // console.log(sum)
     const calculateExpenses = () => {
-        //alert("function calling")
+    
         let totalNumber = 0;
         for (let i = 0, l = data.length; i < l; i++) {
             setSubTotal(totalNumber += data[i].total_productCost * data[i].quantity)
@@ -113,8 +102,7 @@ export default function Cart() {
         console.log(orderTotal)
         
     }
-    // const tempArray=[{gst:gst,subTotal:subTotal,orderTotal:orderTotal}]
-    //    const mergedArray =Array.prototype.push.apply(data,tempArray);
+    
     console.log("here is Data", data)
 
     const fetchAddress = (item, index) => {

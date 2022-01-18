@@ -6,9 +6,7 @@ import { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login';
-import { useNavigate,Outlet } from 'react-router-dom'
-import { useContext } from 'react';
-import { GlobalInfo } from '../App';
+import { useNavigate} from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -68,11 +66,11 @@ export default function LogIn() {
 
     const responseGoogle = (response) => {
         console.log("Here is Gooogle response data:" + response)
-        //navigate('/budget')
+        
     }
     const responseFacebook = (response) => {
         console.log("Log in result here:" + response)
-        //navigate('/budget')
+        
     }
     const componentClicked = (data) => {
         console.log("here is data:" + data)
