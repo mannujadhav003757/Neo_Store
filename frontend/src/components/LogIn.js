@@ -13,6 +13,7 @@ import Footer from './Footer'
 export default function LogIn() {
     //const {getProfile} = useContext(GlobalInfo)
     const navigate = useNavigate()
+    //defining state to get user input
     const [user,setUser]= useState({
             email:'',
             password:''
@@ -31,7 +32,7 @@ export default function LogIn() {
     }
     console.log(user)
     
-
+    //function for login
     const logIn = (e) =>{
         e.preventDefault()
         const eRegex= /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
@@ -64,6 +65,7 @@ export default function LogIn() {
         }
     }
 
+    //social log in
     const responseGoogle = (response) => {
         console.log("Here is Gooogle response data:" + response)
         

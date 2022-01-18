@@ -1,7 +1,9 @@
 const Address = require('../model/address.schema')
 const mongoose = require('mongoose')
 
+// controller of all address routes
 
+//route for adding address
 exports.addAddress = async (req, res) => {
     let tempAddress = req.body
     try {
@@ -32,6 +34,7 @@ exports.addAddress = async (req, res) => {
     }
 }
 
+//route for getting Address
 exports.getAddress = async (req, res) => {
     try {
         if (req.user._id) {

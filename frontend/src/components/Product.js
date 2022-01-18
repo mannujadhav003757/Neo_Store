@@ -13,9 +13,9 @@ export default function Product(props) {
     const [productDetail, setProductDetail] = useState([])
     const [product1, setProduct1] = useState()
     let [searchText, setSearch] = useState('')
-    //const colorInput = React.useRef()
-    //const categoryInput = React.useRef()
+    
     const data = record
+    //function for fetching by default all products
     useEffect(() => {
         axios.get('http://localhost:8081/commonProducts').then(res => {
 
@@ -42,7 +42,7 @@ export default function Product(props) {
             console.log(err)
         })
     }, [])
-
+ //function for fetching all products using button click
     const allProducts = () => {
         axios.get('http://localhost:8081/commonProducts').then(res => {
             const data = res.data.data
@@ -79,6 +79,7 @@ export default function Product(props) {
         color_id
     }
 
+    //function for filttering products
     const filterProduct = () => {
         let param
         if (category_id) {
@@ -128,6 +129,8 @@ export default function Product(props) {
             })
         }
     }
+ //sorting products higher price
+
     const sortHigherPrice = (e) => {
         e.preventDefault()
         const sortedArr = record.sort((a, b) => { { return b.product_cost - a.product_cost } })
@@ -137,6 +140,8 @@ export default function Product(props) {
             setRecord(sortedArr)
         }, 100)
     }
+
+    // function for sorting products lower price
     const sortLowerPrice = () => {
         const sortedArr = record.sort((a, b) => { return a.product_cost - b.product_cost })
         setRecord([])
@@ -145,13 +150,15 @@ export default function Product(props) {
             setRecord(sortedArr)
         }, 100)
     }
-
+  
+    //fetching single product from the product list
     const productDetails = (item, index) => {
         console.log("here is product details",item)
         localStorage.setItem('productDetail',JSON.stringify(item))
         // navigate('/productDetail')
     }
 
+    //function for adding product details in cart
     let tempArr = []
     function addToCart(item, index) {
         item.quantity = 1
@@ -186,7 +193,7 @@ export default function Product(props) {
 
 
     }
-
+ // function for search product
     const onSearch = () => {
         if (searchText !== '') {
             const param = {
@@ -223,7 +230,7 @@ export default function Product(props) {
             }
         }
     }
-
+   // function for clear search fillter using button click
     const onClear = () => {
         setSearch('')
         document.getElementById('search').value = ''

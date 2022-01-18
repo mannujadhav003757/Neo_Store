@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+//schema for address
 const addressSchema = new mongoose.Schema({
     address: {
         type: String,

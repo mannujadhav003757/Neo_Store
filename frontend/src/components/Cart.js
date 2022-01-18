@@ -10,6 +10,8 @@ import axios from 'axios'
 import { useNavigate,Outlet } from 'react-router-dom'
 export default function Cart() {
     const navigate = useNavigate()
+
+    //defining states
     const [data, setData] = useState([])
     const [subTotal, setSubTotal] = useState(0)
     const [gst, setGst] = useState(0)
@@ -42,6 +44,8 @@ export default function Cart() {
 
 
     console.log("Address is here", address)
+
+    //function of less quantity button
     const onLessQuantity = (item) => {
         const index = data.indexOf(item)
 
@@ -63,6 +67,7 @@ export default function Cart() {
         }
     }
 
+    //function for increase quantity button
     const onAddQuantity = (item) => {
         const index = data.indexOf(item)
 
@@ -77,6 +82,7 @@ export default function Cart() {
 
     }
 
+    //function for delete product from the list
     const deleteProduct = (item) => {
         const index = data.indexOf(item)
 
@@ -88,6 +94,7 @@ export default function Cart() {
         }
     }
 
+    //function for calculate overall cart expenses
     const calculateExpenses = () => {
     
         let totalNumber = 0;
@@ -105,17 +112,19 @@ export default function Cart() {
     
     console.log("here is Data", data)
 
+    //function for fetching address in cart for order
     const fetchAddress = (item, index) => {
-        alert("function calling")
+        //alert("function calling")
         setShowAddress(item)
         setCheckAddress(item)
         console.log("here is fectched address", item)
         console.log("here is fetched state", showAddress)
     }
-
+  
+    //function for place order
     const addToOrderPlace = (e) => {
         e.preventDefault()
-        alert("function calling")
+        //alert("function calling")
         const token = localStorage.getItem('token')
 
         const found = address.find(element => element === address.customer_id);
@@ -157,6 +166,7 @@ export default function Cart() {
         })
     }
 
+    //function for navigate cart to payment submodule
     const navPayment = () =>{
         if(showAddress.address)
         {
@@ -167,7 +177,8 @@ export default function Cart() {
         
         }
     }
-
+ 
+    //defining states for payments input 
     const [cardNumber,setCardNumber] = useState('')
     const [cardExpiry,setCardExpiry] = useState('')
     const [cardCvv,setCardCvv] = useState('')

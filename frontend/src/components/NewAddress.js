@@ -9,6 +9,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 export default function NewAddress(prop) {
     console.log("here is prop",prop)
+    //defining states and taking registration input
     const [record,setRecord] = useState('')
     const [Address,setAddress] = useState({
         customer_id:'',
@@ -29,7 +30,7 @@ export default function NewAddress(prop) {
     }
 
     console.log(Address)
-
+  //fetching profile details and taking refrence of user to store the address
     useEffect(()=>{
         if (localStorage.getItem('token')) {
             const token = localStorage.getItem('token')
@@ -49,7 +50,7 @@ export default function NewAddress(prop) {
             })
         }
     },[])
-
+ //function for adding address to the user
     const saveAddress = (e) =>{
         e.preventDefault()
         

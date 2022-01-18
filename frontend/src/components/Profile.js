@@ -12,7 +12,10 @@ import NewAddress from './NewAddress'
 import { useNavigate,Outlet } from 'react-router-dom'
 import Order from './Order'
 export default function Profile() {
+    //defining  usenavigate for navigation
     const navigate = useNavigate()
+
+    //defining states
     const [record, setRecord] = useState("")
     const [showProfile, setShowProfile] = useState(true)
     const [showOrders, setShowOrders] = useState(false)
@@ -21,9 +24,10 @@ export default function Profile() {
     const [showAddForm, setShowAddForm] = useState(true)
     const [showForm,setShowForm] = useState(false)
 
-
+    
     localStorage.setItem('userName',record.fname)
-
+ 
+    //Here applied toggle effect inside components modules
     const navProfile = () => {
         setShowProfile(true)
         //setShowProfile(false)
@@ -54,6 +58,9 @@ export default function Profile() {
         setShowAddress(false)
         navigate('/newAddress')
     }
+
+ //function for taking profile details
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
             const token = localStorage.getItem('token')
@@ -94,7 +101,8 @@ export default function Profile() {
         })
     }
     console.log(user)
-
+ 
+    //function for change password of user
     const changePassword = (e) => {
         e.preventDefault()
         //const pwdRegex=/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/

@@ -4,6 +4,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const otpGenerator = require('otp-generator')
 
+//contoller for user related functions
+
+//function for registering existing user
 exports.register = async (req, res) => {
     let { fname, lname, email, password, mobile, gender, deliveryAddress } = req.body
 
@@ -42,6 +45,7 @@ exports.register = async (req, res) => {
     }
 }
 
+//function for user log in
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -87,7 +91,7 @@ exports.login = async (req, res) => {
     }
 }
 
-
+//function for forget password otp generation
 exports.sendOtp = async (req, res) => {
     try{
         
@@ -143,7 +147,7 @@ exports.sendOtp = async (req, res) => {
         })
     }
 }
-
+//function for update password
 exports.updatepassword  = async (req,res) =>{
     
     try{
@@ -225,7 +229,7 @@ exports.sendOtp = async (req, res) => {
         })
     }
 }
-
+//function for getting profile details
 exports.profileDetails  = async (req,res) =>{
     try{        
         const user = await User.findOne({ _id: req.user._id })
@@ -254,7 +258,7 @@ exports.profileDetails  = async (req,res) =>{
     }
 }
 
-
+//function for change password
 exports.changePassword  = async (req,res) =>{
     
     try{

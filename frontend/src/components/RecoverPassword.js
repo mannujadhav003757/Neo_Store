@@ -15,6 +15,7 @@ export default function RecoverPassword() {
     console.log(email)
     console.log(otp)
 
+ // fuction  for taking email as a payload and send otp for forgot password on users email id
     const sendOtp = () =>{
         const user = { email : email}
         axios.post('http://localhost:8081/sendOtp',user,{ validateStatus: false }).then((res)=>{
@@ -34,7 +35,7 @@ export default function RecoverPassword() {
         setShowVerify(true)
         setShowPass(false)
     }
-
+   // function for  verifying otp 
     const setPass = () =>{
         if(otp) {
             if(localStorage.getItem('otp') && otp === localStorage.getItem('otp'))  {
@@ -66,6 +67,7 @@ export default function RecoverPassword() {
     }
     console.log(password)
     
+    //function for update password
     const updatePassword = () =>{
         let input = {
             email:password.email,

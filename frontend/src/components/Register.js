@@ -10,8 +10,9 @@ import Footer from './Footer'
 import { useNavigate,Outlet } from 'react-router-dom'
 
 export default function Register() {
+    //defining usenavigate for navigation
     const navigate = useNavigate()
-
+    //defining states for taking user details
     const [user, SetUser] = useState({
         fname: "",
         email: "",
@@ -21,6 +22,9 @@ export default function Register() {
         mobile: "",
         gender: ""
     })
+
+    // defining states for show errors
+
     const [ferr, setFerr] = useState(false)
     const [lerr, setLerr] = useState(false)
     const [mobileerr, setMobileerr] = useState(false)
@@ -28,7 +32,7 @@ export default function Register() {
     const [pwderr, setpwdErr] = useState(false)
     const [cpwderr, setCpwderr] = useState(false)
     const [gendererr, setGenderErr] = useState(false)
-
+// taking input from the user
     const handleChange = (e) => {
         const { name, value } = e.target
         SetUser({
@@ -44,7 +48,7 @@ export default function Register() {
         setGenderErr(false)
     }
     console.log(user)
-
+//function for registering existing user 
     const register = (e) => {
         const fRegex=/^[a-zA-Z]+$/
         const lRegex=/^[a-zA-Z]+$/
@@ -99,6 +103,8 @@ export default function Register() {
         }
     }
 }
+
+//functions of social log in
 
 const responseGoogle = (response) => {
     console.log("Here is Gooogle response data:" + response)

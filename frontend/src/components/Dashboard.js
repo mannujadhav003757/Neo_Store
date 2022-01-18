@@ -8,6 +8,7 @@ import {useEffect} from 'react'
 export default function Dashboard(props) {
     console.log('props',props)
     const [record,setRecord] = useState([])
+    //fetching defaultly all products in the page
     useEffect(() =>{
         axios.get('http://localhost:8081/commonProducts').then(res => {
         console.log('here is data',res.data.data)

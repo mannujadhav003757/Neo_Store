@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+//schema for colors
 const colorSchema = new mongoose.Schema({
     color_name:{
         type: String,

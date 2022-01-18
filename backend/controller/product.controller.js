@@ -2,7 +2,9 @@ const Product = require('../model/product.schema')
 const Order = require('../model/order.schema')
 const mongoose = require('mongoose')
 
+//controller for all product related routes
 
+//Route for creating product records 
 exports.createProduct = async (req, res) => {
     try {
         const tempProduct = req.body
@@ -31,6 +33,7 @@ exports.createProduct = async (req, res) => {
     }
 }
 
+//route for getting products
 exports.getProducts = async (req, res) => {
     try {
         const product = await Product.aggregate([
@@ -99,6 +102,7 @@ exports.getProducts = async (req, res) => {
 
 }
 
+//route for fillter products
 exports.filetredProduct = async (req, res) => {
 
     try {
@@ -174,7 +178,7 @@ exports.filetredProduct = async (req, res) => {
 }
 
 
-
+// route for add product to the cart
 exports.addProductToCartCheckout = async (req, res) => {
     try {
         const orderData = req.body
@@ -206,7 +210,7 @@ exports.addProductToCartCheckout = async (req, res) => {
     }
 }
 
-
+//route for get order details
 exports.getOrders = async (req, res) => {
     console.log('calling', req.user)
     try {
