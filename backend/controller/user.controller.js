@@ -187,7 +187,7 @@ exports.sendOtp = async (req, res) => {
                 service: 'gmail',
                 auth: {
                     user: 'mannujadhav003757@gmail.com',
-                    pass: 'Sweetangel@1432'
+                    pass: '****************'
                 }
             });
     
